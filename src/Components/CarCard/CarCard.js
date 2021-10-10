@@ -24,13 +24,12 @@ function MediaCard(props) {
                 image={props.car.url}
             />
             <CardContent>
-                <Typography gutterBottom className={styles.cardTitle} variant="h5" component="div">
+                <Typography gutterBottom  variant="h5" component="div">
                     {props.car.name}
                 </Typography>
-                <Typography className={styles.description} variant="body2" color="text.secondary">
+                <Typography variant="body2" color="text.secondary">
 
                     <ReadMoreReact
-                        className='h5'
                         text={props.car.description}
                         min={50}
                         ideal={52}
@@ -43,8 +42,10 @@ function MediaCard(props) {
                 </Typography>
             </CardContent>
 
-            {props.tracksToggled ?
-                <CardActions title="number of tracks" className={styles.tracks} >
+             {/* Number of Rentals  */}
+            {
+            props.tracksToggled ?
+                <CardActions title="number of previous Rentals" className={styles.tracks} >
                     <CarRentalRoundedIcon />
                     <Typography sx={{ color: '#22313f' }} size="small">{props.car.tracks}</Typography>
                 </CardActions> :

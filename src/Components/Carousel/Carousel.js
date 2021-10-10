@@ -5,7 +5,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 
-
+// Setting for responsive carousel
 const responsive = {
     superLargeDesktop: {
         breakpoint: { max: 4000, min: 3000 },
@@ -29,6 +29,7 @@ const responsive = {
     }
 };
 
+//Adding Carousel Items
 const carousel = (props) => {
     let data = props.cars
     let carouselItems = data.map((data) => {

@@ -12,7 +12,8 @@ function App() {
 
   const [toggleTracks, setToggleTracks] = useState({ toggleTracksOn: true })
   const [featuredCars] = useState({ featuredCars: [...db.cars] })
-  console.log(featuredCars.featuredCars);
+
+
   return (
     <div className={styles.App} >
       <Navbar
