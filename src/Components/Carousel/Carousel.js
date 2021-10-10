@@ -33,9 +33,11 @@ const responsive = {
 const carousel = (props) => {
     let data = props.cars
     let carouselItems = data.map((data) => {
-        return <CarCard className="row"
-            tracksToggled={props.tracksToggled}
-            car={data} />
+        return <CarCard
+                 className="row"
+                 key = {data.id}
+                 tracksToggled={props.tracksToggled}
+                 car={data} />
     })
 
     return (

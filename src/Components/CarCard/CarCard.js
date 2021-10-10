@@ -34,7 +34,7 @@ function MediaCard(props) {
                         min={50}
                         ideal={52}
                         max={55}
-                        readMoreText={readMoreText()}>
+                        readMoreText={readMoreText().toString()}>
 
                     </ReadMoreReact>
 
