@@ -1,0 +1,27 @@
+.mainCard {
+  margin: 15px;
+  padding-bottom: 5px;
+}
+.description {
+  font-size: 0.7em;
+}
+
+@media only screen and (max-width: 490px) {
+  .mainCard {
+    margin: auto;
+  }
+}
+
+.readMore {
+  text-decoration: none;
+}
+.tracks {
+  width: fit-content;
+  padding: 0;
+  border-radius: 15px;
+  margin-left: 5px;
+  transition: ease-in 0.3s;
+}
+.tracks:hover {
+  background-color: #bac1b8;
+}

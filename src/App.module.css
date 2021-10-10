@@ -1,0 +1,9 @@
+.App {
+  height: 100vh;
+  text-align: center;
+  background-image: linear-gradient(
+    176deg,
+    #22313f 70%,
+    #bac1b8 calc(70% + 2px)
+  );
+}
