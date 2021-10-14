@@ -9,20 +9,21 @@ import logo from '../../assets/logo.svg'
 
 const navbar = (props) => {
 
+    // Checking if button is pressed or not
     let eyeIconStatus = () => {
         if (props.tracksToggled)
             return (
                 <RemoveRedEyeRoundedIcon />
             )
         else return (
-            <VisibilityOffRoundedIcon />
+                <VisibilityOffRoundedIcon />
         )
     }
 
     return (
         <div>
             <br />
-            <Navbar bg="#BAC1B8" variant="dark" className={styles.navbar}>
+            <Navbar  variant="dark" className={styles.navbar}>
                 <Container>
                     <Navbar.Brand href="#home">
                         <img
