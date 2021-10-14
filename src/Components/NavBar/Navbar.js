@@ -36,7 +36,7 @@ const navbar = (props) => {
                     </Navbar.Brand>
                     <button
                         className='btn btn-light'
-                        onClick={() => props.setToggleTracks({ toggleTracksOn: !props.tracksToggled })}>
+                        onClick={props.setToggleTracks}>
                         {eyeIconStatus()}
                     </button>
                 </Container>

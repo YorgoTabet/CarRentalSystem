@@ -13,11 +13,20 @@ function App() {
   const [toggleTracks, setToggleTracks] = useState({ toggleTracksOn: true })
   const [featuredCars] = useState({ featuredCars: [...db.cars] })
   console.log(featuredCars.featuredCars);
+
+  //Helper function to toggle state
+  const switchTracks = () => {
+    console.log('Switching Tracks')
+    setToggleTracks(prevState => ({
+      toggleTracksOn: !prevState.toggleTracksOn
+    }))
+  }
+
   return (
     <div className={styles.App} >
       <Navbar
         tracksToggled={toggleTracks.toggleTracksOn}
-        setToggleTracks={setToggleTracks} />
+        setToggleTracks={switchTracks} />
       <Carousel
         tracksToggled={toggleTracks.toggleTracksOn}
         cars={featuredCars.featuredCars}></Carousel>
