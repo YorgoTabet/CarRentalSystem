@@ -4,6 +4,9 @@ import CarCard from '../CarCard/CarCard'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
+//Cars Import 
+import db from '../../db.json'
+
 
 // Setting for responsive carousel
 const responsive = {
@@ -31,9 +34,10 @@ const responsive = {
 
 //Adding Carousel Items
 const carousel = (props) => {
-    let data = props.cars
+    let data = db.cars
     let carouselItems = data.map((data) => {
-        return <CarCard key={data.id} className="row"
+        return <CarCard
+            key={data.id}
             tracksToggled={props.tracksToggled}
             car={data} />
     })

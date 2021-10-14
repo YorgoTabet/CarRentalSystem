@@ -16,18 +16,17 @@ const navbar = (props) => {
                 <RemoveRedEyeRoundedIcon />
             )
         else return (
-                <VisibilityOffRoundedIcon />
+            <VisibilityOffRoundedIcon />
         )
     }
 
     return (
         <div>
             <br />
-            <Navbar  variant="dark" className={styles.navbar}>
+            <Navbar variant="dark" className={styles.navbar}>
                 <Container>
                     <Navbar.Brand href="#home">
                         <img
-                            alt=""
                             src={logo}
                             width="100"
                             height="100"
