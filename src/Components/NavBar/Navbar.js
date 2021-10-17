@@ -25,7 +25,7 @@ const navbar = (props) => {
             <br />
             <Navbar variant="dark" className={styles.navbar}>
                 <Container>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand >
                         <img
                             src={logo}
                             width="100"
@@ -42,7 +42,7 @@ const navbar = (props) => {
                 </Container>
 
             </Navbar>
-        </div>
+        </div >
     )
 }
 
