@@ -7,17 +7,26 @@ import Typography from '@mui/material/Typography';
 import CarRentalRoundedIcon from '@mui/icons-material/CarRentalRounded';
 import styles from './CarCard.module.css'
 import ReadMoreReact from 'read-more-react'
+import { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 
 
 
-function MediaCard(props) {
+
+const MediaCard = (props) => {
+
+    const [hover, setHover] = useState(false)
+
+    const onHoverHandler = () => {
+        setHover(!hover)
+    }
 
     let readMoreText = () => {
-        return (<a className={styles.readMore} href='#'>...read more</a>)
+        return (<a className={styles.readMore} href='#1232'>...read more</a>)
     }
     return (
-        <Card className={styles.mainCard} sx={{ maxWidth: 345 }}>
+        <Card className={styles.mainCard} sx={{ maxWidth: 345 }} onMouseEnter={onHoverHandler} onMouseLeave={onHoverHandler} >
             <CardMedia
                 component="img"
                 height="140"
@@ -41,7 +50,8 @@ function MediaCard(props) {
 
                 </Typography>
             </CardContent>
-
+            {/* View Details Btn */}
+            {hover ? <Link to={"car/" + props.car.id} className={styles.ShowBtn}>Show</Link> : null}
             {/* Number of Rentals  */}
             {
                 props.tracksToggled ?
@@ -53,7 +63,9 @@ function MediaCard(props) {
             }
 
 
+
         </Card>
+
     );
 }
 

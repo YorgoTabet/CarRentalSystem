@@ -1,10 +1,13 @@
 import Carousel from './Components/Carousel/Carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { Route, Switch } from 'react-router';
 
 import styles from './App.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Components/NavBar/Navbar';
+import MainPage from './Components/MainPage/MainPage';
 import { useState } from 'react';
+import CarInfo from './Containers/CarInfo/CarInfo';
 
 
 function App() {
@@ -25,10 +28,13 @@ function App() {
       <Navbar
         tracksToggled={toggleTracks.toggleTracksOn}
         setToggleTracks={switchTracks} />
-      <Carousel
-        tracksToggled={toggleTracks.toggleTracksOn}
-      ></Carousel>
-    </div>
+      <Switch>
+        <Route path="/" exact render={() => <MainPage toggleTracks={toggleTracks.toggleTracksOn} />} />
+        <Route path="/car/:id" exact component={CarInfo} />
+      </Switch>
+
+
+    </div >
   );
 }
 
