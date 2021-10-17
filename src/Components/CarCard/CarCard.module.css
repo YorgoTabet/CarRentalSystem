@@ -3,12 +3,6 @@
   padding-bottom: 5px;
 }
 
-@media only screen and (max-width: 490px) {
-  .mainCard {
-    margin: auto;
-  }
-}
-
 .readMore {
   text-decoration: none;
 }
@@ -25,16 +19,26 @@
 
 .ShowBtn {
   color: #acc8e5;
-  padding: 5px;
+  padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
   background-color: #22313f;
   border-color: #22313f9a;
   animation: drop 1s;
+  text-decoration: none;
+}
+.ShowBtn:hover {
+  color: white;
+}
+
+@media only screen and (max-width: 750px) {
+  .mainCard {
+    margin: auto;
+  }
 }
 
 @keyframes drop {
-  from {
+  0% {
     transform: translateY(10000);
     overflow: hidden;
   }

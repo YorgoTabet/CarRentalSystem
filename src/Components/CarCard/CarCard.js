@@ -14,6 +14,8 @@ import { Link } from 'react-router-dom'
 
 
 
+
+
 const MediaCard = (props) => {
 
     const [hover, setHover] = useState(false)
@@ -50,8 +52,10 @@ const MediaCard = (props) => {
 
                 </Typography>
             </CardContent>
+
             {/* View Details Btn */}
             {hover ? <Link to={"car/" + props.car.id} className={styles.ShowBtn}>Show</Link> : null}
+
             {/* Number of Rentals  */}
             {
                 props.tracksToggled ?

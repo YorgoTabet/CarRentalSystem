@@ -4,9 +4,12 @@
   height: 100%;
   margin: auto;
   padding: 5px;
+  height: 100vh;
 }
 
 .img {
+  box-sizing: border-box;
+  padding: 0;
   position: relative;
   width: 400px;
   height: 400px;

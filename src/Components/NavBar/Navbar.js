@@ -5,6 +5,7 @@ import RemoveRedEyeRoundedIcon from '@mui/icons-material/RemoveRedEyeRounded';
 import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
 import styles from './NavBar.module.css'
 import logo from '../../assets/logo.svg'
+import UserControl from "../UserControl/UserControl";
 
 
 const navbar = (props) => {
@@ -20,19 +21,22 @@ const navbar = (props) => {
         )
     }
 
+
     return (
         <div>
-            <br />
             <Navbar variant="dark" className={styles.navbar}>
                 <Container>
+                    {/* UserControl COmponent */}
+                    <UserControl />
+
                     <Navbar.Brand >
                         <img
                             src={logo}
                             width="100"
                             height="100"
                             className="d-inline-block align-middle"
-                        />{' '}
-                        <span className="h2">Car Rental</span>
+                            alt={props.name}
+                        />{' Super Car '}
                     </Navbar.Brand>
                     <button
                         className='btn btn-light'

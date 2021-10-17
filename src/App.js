@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router';
 import styles from './App.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Components/NavBar/Navbar';
-import MainPage from './Components/MainPage/MainPage';
+import MainPage from './Containers/MainPage/MainPage';
 import { useState } from 'react';
 import CarInfo from './Containers/CarInfo/CarInfo';
 
