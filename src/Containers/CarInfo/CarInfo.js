@@ -4,7 +4,7 @@ import styles from './CarInfo.module.css'
 
 const CarInfo = (props) => {
 
-    const [car, setCar] = useState(db.cars.find(x => { return x.id === parseInt(props.match.params.id) }))
+    const [car] = useState(db.cars.find(x => { return x.id === parseInt(props.match.params.id) }))
     console.log(car);
 
     return (

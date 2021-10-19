@@ -1,0 +1,59 @@
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: grey;
+  height: auto;
+  margin: auto;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 400px;
+  box-shadow: 0px 0px 50px -6px rgba(0, 0, 0, 0.65);
+  -webkit-box-shadow: 0px 0px 50px -6px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: 0px 0px 50px -6px rgba(0, 0, 0, 0.65);
+}
+
+.loginBox input {
+  margin: 5px auto;
+}
+.page {
+  height: 100vh;
+  width: 100vw;
+}
+.loginBtn {
+  display: block;
+  max-width: 100px;
+  margin: auto;
+  color: #acc8e5;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #22313f;
+  border-color: #22313f9a;
+  text-decoration: none;
+  box-shadow: none;
+}
+.ErrorMessage {
+  color: salmon;
+  font-size: 0.5 em;
+  background-color: red;
+}
+
+@media (max-width: 1500px) {
+  .loginBox {
+    max-width: 300px;
+  }
+}
+@media (min-width: 1501px) {
+  .loginBox {
+    max-width: 700px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    font-size: xx-large;
+  }
+  .loginBox input {
+    height: 50px;
+    margin: 15px auto;
+  }
+}

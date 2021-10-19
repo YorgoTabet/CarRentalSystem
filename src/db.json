@@ -5,42 +5,82 @@
         "name": "Peugeot 307",
         "description":"The Peugeot 307 is a small family car produced by the French automaker PSA Peugeot Citroën, under their Peugeot marque.",
         "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Peugeot_307_front_20071217.jpg",
-        "tracks": 100
+        "tracks": 100,
+        "details": {
+            "price": 12.3,
+            "downpayment": 200,
+            "seats": 4,
+            "gasConsumption": 4,
+            "comfort": 9
+        }
         },
         {
         "id":2,
         "name": "Subaru Impreza",
         "description":"Is Subaru still making Impreza? The Subaru Impreza retains its value better than any other vehicle in its class.",
         "url": "https://images.unsplash.com/photo-1611609054395-246e4000ad36?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
-        "tracks": 22
+        "tracks": 22,
+        "details": {
+            "price": 12.3,
+            "downpayment": 200,
+            "seats": 4,
+            "gasConsumption": 4,
+            "comfort": 9
+        }
         },
         {
         "id":3,
         "name": "Mitsubishi Lancer",
         "description":"The Mitsubishi Lancer is an automobile nameplate produced by the Japanese manufacturer Mitsubishi Motors since 1973.",
         "url": "https://images.unsplash.com/photo-1611023939376-e1e16d1c15bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
-        "tracks": 34
+        "tracks": 34,
+        "details": {
+            "price": 12.3,
+            "downpayment": 200,
+            "seats": 4,
+            "gasConsumption": 4,
+            "comfort": 9
+        }
         },
         {
         "id":4,
         "name": "Mazda Miata",
         "description":"Over its four generations, the MX-5 Miata has remained an authentic lightweight sports car.One of our most wanted cars",
         "url": "https://images.unsplash.com/photo-1610884447640-42b8ec61a933?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1026&q=80",
-        "tracks": 60
+        "tracks": 60,
+        "details": {}
         },
         {
         "id":5,
         "name": "Ford F-150",
         "description":"Tougher than before. Smarter than ever!. The all-new F-150 is purpose-built from the ground up",
         "url": "https://images.unsplash.com/photo-1551830820-330a71b99659?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
-        "tracks": 13
+        "tracks": 13,
+        "details": {
+            "price": 12.3,
+            "downpayment": 200,
+            "seats": 4,
+            "gasConsumption": 4,
+            "comfort": 9
+        }
         },
         {
         "id":6,
         "name": "GOLF GTI",
         "description":"The Golf GTI is more than just a 4-wheeled machine – it's a force. With bold looks, a 2.0L turbocharged engine,",
         "url": "http://www.aaarentcars.com/sites/default/files/styles/image_vehicule_fullscreen/public/vehicule_images/aaa-luxury-rent-cars-golf-gti-volkswagen-v1.png?itok=tmXF4Yhe",
-        "tracks": 31
+        "tracks": 31,
+        "details": {
+            "price": 12.3,
+            "downpayment": 200,
+            "seats": 4,
+            "gasConsumption": 4,
+            "comfort": 9
         }
+        }
+    ],
+    "accounts":[
+        {"username": "yorgoT", "password": 1234, "email": "yorgotabet@gmail.com"},
+        {"username": "Admin", "password": "Admin", "email": "admin@tests.com"}
     ]
 }

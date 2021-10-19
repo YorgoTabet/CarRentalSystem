@@ -27,7 +27,7 @@ const navbar = (props) => {
             <Navbar variant="dark" className={styles.navbar}>
                 <Container>
                     {/* UserControl COmponent */}
-                    <UserControl />
+                    {props.isLoggingIn ? null : <UserControl isAuth={props.isAuth} />}
 
                     <Navbar.Brand >
                         <img
@@ -38,11 +38,12 @@ const navbar = (props) => {
                             alt={props.name}
                         />{' Super Car '}
                     </Navbar.Brand>
-                    <button
+                    {props.isLoggingIn ? null : <button
                         className='btn btn-light'
                         onClick={props.setToggleTracks}>
                         {eyeIconStatus()}
                     </button>
+                    }
                 </Container>
 
             </Navbar>

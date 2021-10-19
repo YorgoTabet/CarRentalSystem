@@ -18,13 +18,16 @@
 }
 
 .ShowBtn {
+  display: block;
+  max-width: 100px;
+  margin: auto;
   color: #acc8e5;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
   background-color: #22313f;
   border-color: #22313f9a;
-  animation: drop 1s;
+  animation: drop 0.5s;
   text-decoration: none;
 }
 .ShowBtn:hover {
@@ -38,8 +41,7 @@
 }
 
 @keyframes drop {
-  0% {
-    transform: translateY(10000);
-    overflow: hidden;
+  from {
+    opacity: 0;
   }
 }

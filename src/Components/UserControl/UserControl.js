@@ -1,11 +1,11 @@
-import React, { useState } from "react"
+import React from "react"
+import { Link } from 'react-router-dom'
 
 const UserControl = (props) => {
 
-    let [loginStatus] = useState(false)
 
     return (
-        loginStatus ? <div>Yorgo<button>Logout</button></div > : <div><button>Login</button><button>logout</button></div>
+        props.isAuth ? <button>Logout</button> : <div><button><Link to='/auth'>Login</Link></button></div>
 
     )
 }
