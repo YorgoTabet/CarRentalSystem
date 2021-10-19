@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import * as actions from '../../Store/actions/index'
 
 import styles from './Auth.module.css'
+import { Redirect } from 'react-router'
 
 const Auth = (props) => {
     //state to check whether its log in or sign up form
@@ -27,7 +28,7 @@ const Auth = (props) => {
     }
     const validateSignUp = values => {
         const errors = {};
-        const passRegex = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$')
+        const passRegex = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/g)
         if (!values.email) {
             errors.email = 'Required'
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
@@ -36,6 +37,7 @@ const Auth = (props) => {
         if (!values.password) {
             errors.password = 'Required'
         } else if (!passRegex.test(values.password)) {
+            console.log(passRegex.test(values.password));
             errors.password = 'Password must contain 8-10 character, 1 uppercase, 1 number and a special character'
         }
         if (!values.username) {
@@ -76,15 +78,16 @@ const Auth = (props) => {
             initialValues={{ email: '', username: '', password: '', confirmPass: '' }}
             validate={validateSignUp}
             onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false)
-                }, 400)
+                const info = {
+                    email: values.email,
+                    password: values.password,
+                }
+                props.signUp(info)
             }}>
             {
                 <div className={styles.page}>
                     <Form className={styles.loginBox}>
-                        <h3>Sign Up</h3>
+                        <h3 className={styles.title}>Sign Up</h3>
                         <Field name="email" type="email" placeholder='Email' />
                         <ErrorMessage className={styles.ErrorMessage} name="email" />
 
@@ -97,7 +100,7 @@ const Auth = (props) => {
                         <Field name="confirmPass" type="password" placeholder='Confirm password' />
                         <ErrorMessage className={styles.ErrorMessage} name="confirmPass" />
 
-                        <button type="submit" className={styles.loginBtn}>Sign Up</button>
+                        <button type="submit" className={styles.loginBtn}>{'Sign Up'}</button>
                         <p>Already a member?</p><a href='#' onClick={activateSignUp}>Log in</a>
                     </Form>
 
@@ -110,15 +113,16 @@ const Auth = (props) => {
         initialValues={{ email: '', password: '' }}
         validate={validateLogin}
         onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false)
-            }, 400)
+            const info = {
+                email: values.email,
+                password: values.password,
+            }
+            props.signIn(info)
         }}>
         {
             <div className={styles.page}>
                 <Form className={styles.loginBox}>
-                    <h3>Sign Up</h3>
+                    <h3 className={styles.title}>Welcome Back!</h3>
                     <Field name="email" type="email" placeholder='Email' />
                     <ErrorMessage className={styles.ErrorMessage} name="email" />
 
@@ -140,16 +144,23 @@ const Auth = (props) => {
 
     return (
         <div>
-            {form}
+            {props.isAuth ? <Redirect to="/" /> : form}
         </div>
     );
 }
-
+const mapStateToProps = (state) => {
+    return {
+        isAuth: state.token !== null
+    }
+}
 const mapDispatchToProps = (dispatch) => {
     return {
         onLoadPage: () => dispatch(actions.isLoggingIn()),
-        onLeavePage: () => dispatch(actions.notLoggingIn())
+        onLeavePage: () => dispatch(actions.notLoggingIn()),
+        signUp: (info) => dispatch(actions.signUp(info)),
+        signIn: (info) => dispatch(actions.signIn(info)),
+
     }
 }
 
-export default connect(null, mapDispatchToProps)(Auth)
+export default connect(mapStateToProps, mapDispatchToProps)(Auth)

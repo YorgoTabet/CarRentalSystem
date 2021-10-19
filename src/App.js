@@ -10,6 +10,8 @@ import CarInfo from './Containers/CarInfo/CarInfo';
 import MainPage from './Containers/MainPage/MainPage';
 import Navbar from './Components/NavBar/Navbar';
 import Auth from './Containers/Auth/Auth'
+import { logout } from './Store/actions/actionTypes';
+import * as actions from './Store/actions/index'
 
 
 function App(props) {
@@ -31,7 +33,8 @@ function App(props) {
         tracksToggled={toggleTracks.toggleTracksOn}
         setToggleTracks={switchTracks}
         isAuth={props.isAuth}
-        isLoggingIn={props.isLoggingIn} />
+        isLoggingIn={props.isLoggingIn}
+        logout={props.onLogout} />
       <Switch>
 
         <Route path="/" exact render={() => <MainPage toggleTracks={toggleTracks.toggleTracksOn} />} />
@@ -50,5 +53,10 @@ const mapStateToProps = (state) => {
     isLoggingIn: state.isLoggingIn
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogout: () => dispatch(actions.logout())
+  }
+}
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

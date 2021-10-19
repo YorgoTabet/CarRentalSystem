@@ -7,14 +7,15 @@ import App from './App';
 
 
 import { Provider } from 'react-redux'
-import { createStore, compose } from 'redux'
+import { createStore, compose, applyMiddleware } from 'redux'
 import authReducer from './Store/reducers/auth'
+import thunk from 'redux-thunk'
 
 import reportWebVitals from './reportWebVitals';
 
 const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
 
-const store = createStore(authReducer, composeEnhancers())
+const store = createStore(authReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>

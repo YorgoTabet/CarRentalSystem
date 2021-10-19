@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.23.0",
     "bootstrap": "^5.1.1",
     "formik": "^2.2.9",
     "react": "^17.0.2",
@@ -22,6 +23,8 @@
     "react-scripts": "4.0.3",
     "read-more-react": "^1.0.10",
     "redux": "^4.1.1",
+    "redux-thunk": "^2.3.0",
+    "thunk": "0.0.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

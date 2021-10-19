@@ -1,1 +1,1 @@
-export { isLoggingIn, notLoggingIn } from './auth'
+export { isLoggingIn, notLoggingIn, signIn, signUp, logout } from './auth'

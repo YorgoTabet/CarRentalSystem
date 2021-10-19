@@ -27,7 +27,7 @@ const navbar = (props) => {
             <Navbar variant="dark" className={styles.navbar}>
                 <Container>
                     {/* UserControl COmponent */}
-                    {props.isLoggingIn ? null : <UserControl isAuth={props.isAuth} />}
+                    {props.isLoggingIn ? null : <UserControl logout={props.logout} isAuth={props.isAuth} />}
 
                     <Navbar.Brand >
                         <img

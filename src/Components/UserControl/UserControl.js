@@ -5,7 +5,7 @@ const UserControl = (props) => {
 
 
     return (
-        props.isAuth ? <button>Logout</button> : <div><button><Link to='/auth'>Login</Link></button></div>
+        props.isAuth ? <button onClick={props.logout}>Logout</button> : <div><button><Link to='/auth'>Login</Link></button></div>
 
     )
 }
