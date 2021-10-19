@@ -55,13 +55,14 @@ const Auth = (props) => {
     }
 
     useEffect(() => {
-        //dipatch userisloggingin
+        //dipatch userisloggingin to Hide the navigation items that shouldn't be seen
         props.onLoadPage();
         return () => {
             props.onLeavePage()
         }
     }, [])
 
+    //usefull when changing from sign up to log in
     const activateSignUp = () => {
         setAuthMode((prevState) => {
             if (prevState === 'login') {
@@ -72,47 +73,44 @@ const Auth = (props) => {
         })
     }
 
-
+    //Formik sign up form
     let formikSignUp =
         <Formik
             initialValues={{ email: '', username: '', password: '', confirmPass: '' }}
             validate={validateSignUp}
-            onSubmit={(values, { setSubmitting }) => {
+            onSubmit={(values) => {
                 const info = {
                     email: values.email,
                     password: values.password,
                 }
                 props.signUp(info)
             }}>
-            {
-                <div className={styles.page}>
-                    <Form className={styles.loginBox}>
-                        <h3 className={styles.title}>Sign Up</h3>
-                        <Field name="email" type="email" placeholder='Email' />
-                        <ErrorMessage className={styles.ErrorMessage} name="email" />
+            <div className={styles.page}>
+                <Form className={styles.loginBox}>
+                    <h3 className={styles.title}>Sign Up</h3>
+                    <Field name="email" type="email" placeholder='Email' />
+                    <ErrorMessage className={styles.ErrorMessage} name="email" />
 
-                        <Field name="username" type="text" placeholder='Username' />
-                        <ErrorMessage className={styles.ErrorMessage} name="username" />
+                    <Field name="username" type="text" placeholder='Username' />
+                    <ErrorMessage className={styles.ErrorMessage} name="username" />
 
-                        <Field name="password" type="password" placeholder='password' />
-                        <ErrorMessage className={styles.ErrorMessage} name="password" />
+                    <Field name="password" type="password" placeholder='password' />
+                    <ErrorMessage className={styles.ErrorMessage} name="password" />
 
-                        <Field name="confirmPass" type="password" placeholder='Confirm password' />
-                        <ErrorMessage className={styles.ErrorMessage} name="confirmPass" />
+                    <Field name="confirmPass" type="password" placeholder='Confirm password' />
+                    <ErrorMessage className={styles.ErrorMessage} name="confirmPass" />
 
-                        <button type="submit" className={styles.loginBtn}>{'Sign Up'}</button>
-                        <p>Already a member?</p><a href='#' onClick={activateSignUp}>Log in</a>
-                    </Form>
-
-                </div>
-
-            }
+                    <button type="submit" className={styles.loginBtn}>{'Sign Up'}</button>
+                    <p>Already a member?</p><a href='#' onClick={activateSignUp}>Log in</a>
+                </Form>
+            </div>
         </Formik >
 
+    //Formik log in form
     let form = (<Formik
         initialValues={{ email: '', password: '' }}
         validate={validateLogin}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values) => {
             const info = {
                 email: values.email,
                 password: values.password,

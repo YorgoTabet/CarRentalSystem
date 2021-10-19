@@ -36,7 +36,7 @@ const navbar = (props) => {
                             height="100"
                             className="d-inline-block align-middle"
                             alt={props.name}
-                        />{' Super Car '}
+                        />
                     </Navbar.Brand>
                     {props.isLoggingIn ? null : <button
                         className='btn btn-light'
