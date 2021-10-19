@@ -20,17 +20,17 @@ import styles from './CarCard.module.css'
 
 const MediaCard = (props) => {
 
-    const [hover, setHover] = useState(false)
+    const [click, setClick] = useState(false)
 
-    const onHoverHandler = () => {
-        setHover(!hover)
+    const onClickHandler = () => {
+        setClick(!click)
     }
 
     let readMoreText = () => {
         return (<a className={styles.readMore} href='#1232'>...read more</a>)
     }
     return (
-        <Card className={styles.mainCard} sx={{ maxWidth: 345 }} onMouseEnter={onHoverHandler} onMouseLeave={onHoverHandler} >
+        <Card className={styles.mainCard} sx={{ maxWidth: 345 }} onClick={onClickHandler} >
             <CardMedia
                 component="img"
                 height="140"
@@ -56,7 +56,7 @@ const MediaCard = (props) => {
             </CardContent>
 
             {/* View Details Btn */}
-            {hover ? <Link to={"car/" + props.car.id} className={styles.ShowBtn}>Show</Link> : null}
+            {click ? <Link to={"car/" + props.car.id} className={styles.ShowBtn}>Show</Link> : null}
 
             {/* Number of Rentals  */}
             {
