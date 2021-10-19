@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/actionTypes'
 let initialState = {
     email: null,
     token: null,
-    isLoggingIn: false
+    isLoggingIn: false,
+    error: false
 }
 
 
@@ -22,13 +23,22 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 email: action.info.email,
-                token: action.info.idToken
+                token: action.info.idToken,
+                error: false
             }
         case actionTypes.logout:
             return {
                 ...state,
                 email: null,
-                token: null
+                token: null,
+                error: false
+            }
+        case actionTypes.failedAuth:
+            return {
+                ...state,
+                email: null,
+                token: null,
+                error: true
             }
         default:
             return state

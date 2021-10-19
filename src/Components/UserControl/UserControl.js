@@ -1,11 +1,35 @@
 import React from "react"
 import { Link } from 'react-router-dom'
+import styles from './UserControl.module.css'
+import PersonIcon from '@mui/icons-material/Person';
+import { useState } from "react";
+
 
 const UserControl = (props) => {
 
+    const [menuToggle, setMenuToggle] = useState(false)
+
+    const switchMenu = () => {
+        setMenuToggle((prevState) => {
+            return !prevState
+        })
+    }
 
     return (
-        props.isAuth ? <button onClick={props.logout}>Logout</button> : <div><button><Link to='/auth'>Login</Link></button></div>
+        props.isAuth ?
+            <div>
+                <button className='btn btn-light' onClick={switchMenu} ><PersonIcon /></button>
+
+                <div className={styles.Menu} style={{ display: menuToggle ? 'block' : 'none' }}>
+                    <p>{props.email}</p>
+                    <hr />
+                    <button className={'btnLogout ' + styles.logout} onClick={props.logout}>Logout</button>
+                </div>
+            </div >
+            :
+            <div>
+                <Link className="btn btn-light" to='/auth'>Login</Link>
+            </div >
 
     )
 }

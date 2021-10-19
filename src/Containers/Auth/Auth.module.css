@@ -36,7 +36,8 @@
 .ErrorMessage {
   color: salmon;
   font-size: 0.5 em;
-  background-color: red;
+  display: block;
+  margin: auto;
 }
 
 @media (min-width: 1501px) {

@@ -37,11 +37,10 @@ export const timeOutLogout = (time) => {
         }, time * 1000)
     }
 }
-export const failedAuth = (err) => {
+export const failedAuth = () => {
 
     return {
         type: actionTypes.failedAuth,
-        err: err
     }
 }
 
@@ -60,7 +59,7 @@ export const signIn = (info) => {
             })
             .catch(err => {
                 dispatch(failedAuth(err))
-                console.log(err);
+                console.log(err.message, 'err');
             })
     }
 }
@@ -73,12 +72,11 @@ export const signUp = (info) => {
     return dispatch => {
         axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAV2X-TOL6EeQyILWaVVQGtAbDS4VIj1gs', body)
             .then(res => {
-                console.log('Signed up sucessfully', res)
                 dispatch(timeOutLogout(res.data.expiresIn))
                 dispatch(AuthenticateSignIn(res.data))
 
             })
-            .catch(err => dispatch(failedAuth(err)))
+            .catch(err => dispatch(failedAuth()))
     }
 
 }

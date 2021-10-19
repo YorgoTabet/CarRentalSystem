@@ -139,18 +139,21 @@ const Auth = (props) => {
     </Formik >)
 
     if (authMode === 'signup') {
+
         form = formikSignUp
     }
 
     return (
         <div>
+            {props.error ? <span className={styles.ErrorMessage}>Something went wrong... Retry!</span> : null}
             {props.isAuth ? <Redirect to="/" /> : form}
         </div>
     );
 }
 const mapStateToProps = (state) => {
     return {
-        isAuth: state.token !== null
+        isAuth: state.token !== null,
+        error: state.error
     }
 }
 const mapDispatchToProps = (dispatch) => {

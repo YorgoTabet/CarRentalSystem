@@ -1,0 +1,22 @@
+.Menu {
+  background-color: white;
+  position: absolute;
+  z-index: 100;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 5px;
+  display: none;
+}
+.logout {
+  display: block;
+  max-width: 150px;
+  margin: auto;
+  color: #acc8e5;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #22313f;
+  border-color: #22313f9a;
+  text-decoration: none;
+  box-shadow: none;
+}
