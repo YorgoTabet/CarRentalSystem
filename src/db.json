@@ -121,6 +121,12 @@
                 "brand": "Toyota",
                 "name": "Micra",
                 "url": "https://logo.clearbit.com/toyota.com"
+            },
+            {
+                "id":14,
+                "brand": "Toyota",
+                "name": "Corolla",
+                "url": "https://logo.clearbit.com/toyota.com"
             }
     ]
 }
