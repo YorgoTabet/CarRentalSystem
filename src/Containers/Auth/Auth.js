@@ -65,6 +65,7 @@ const Auth = (props) => {
     //usefull when changing from sign up to log in
     const activateSignUp = () => {
         setAuthMode((prevState) => {
+            console.log("chagning ffrom: ", prevState);
             if (prevState === 'login') {
                 return 'signup'
             } else {
@@ -128,7 +129,7 @@ const Auth = (props) => {
                     <ErrorMessage className={styles.ErrorMessage} name="password" />
 
                     <button type="submit" className={styles.loginBtn}>Login</button>
-                    <p>New here?</p><a href='' onClick={() => activateSignUp()}>Sign up</a>
+                    <p>New here?</p><a href='#' onClick={activateSignUp}>Sign up</a>
                 </Form>
 
             </div>
