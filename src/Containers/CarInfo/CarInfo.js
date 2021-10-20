@@ -5,8 +5,11 @@ import styles from './CarInfo.module.css'
 const CarInfo = (props) => {
 
     const [car] = useState(db.cars.find(x => { return x.id === parseInt(props.match.params.id) }))
-    console.log(car);
-
+    // "price": 12.3,
+    // "downpayment": 200,
+    // "seats": 4,
+    // "gasConsumption": 4,
+    // "comfort": 9
     return (
         <React.Fragment >
             <div className={styles.container + ' container'}>
@@ -17,9 +20,11 @@ const CarInfo = (props) => {
                     <div className={styles.details}>
                         <h5>Details</h5>
                         <ul>
-                            <li>Bla bala bal</li>
-                            <li>Bla bala bal</li>
-                            <li>Bla bala bal</li>
+                            <li>Price: {car.details.price}/Day</li>
+                            <li>Down Payment: {car.details.downpayment}$</li>
+                            <li>Seats: {car.details.seats}</li>
+                            <li>Consumption: {car.details.gasConsumption}/10</li>
+                            <li>Comformt: {car.details.comfort}/10</li>
                         </ul>
                     </div>
 

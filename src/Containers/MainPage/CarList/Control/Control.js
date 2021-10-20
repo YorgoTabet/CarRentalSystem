@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import db from '../../../../db.json'
 import styles from './Control.module.css'
 import FilterListIcon from '@mui/icons-material/FilterList';
@@ -27,6 +27,7 @@ const Control = (props) => {
                 {differentBrands.map((x) => {
                     return (
                         <div
+                            key={x}
                             onClick={() => {
                                 props.changeKey(x);
                                 setIsFiltered(true);

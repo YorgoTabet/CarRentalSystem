@@ -128,7 +128,7 @@ const Auth = (props) => {
                     <ErrorMessage className={styles.ErrorMessage} name="password" />
 
                     <button type="submit" className={styles.loginBtn}>Login</button>
-                    <p>New here?</p><a href='#' onClick={activateSignUp}>Sign up</a>
+                    <p>New here?</p><a href='' onClick={() => activateSignUp()}>Sign up</a>
                 </Form>
 
             </div>

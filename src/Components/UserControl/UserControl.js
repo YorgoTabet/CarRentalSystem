@@ -14,6 +14,12 @@ const UserControl = (props) => {
             return !prevState
         })
     }
+    const promptLogout = () => {
+        // eslint-disable-next-line no-restricted-globals
+        if (confirm('Click OK to confirm logout')) {
+            props.logout()
+        }
+    }
 
     return (
         props.isAuth ?
@@ -23,7 +29,7 @@ const UserControl = (props) => {
                 <div className={styles.Menu} style={{ display: menuToggle ? 'block' : 'none' }}>
                     <p>{props.email}</p>
                     <hr />
-                    <button className={'btnLogout ' + styles.logout} onClick={props.logout}>Logout</button>
+                    <button className={'btnLogout ' + styles.logout} onClick={promptLogout}>Logout</button>
                 </div>
             </div >
             :

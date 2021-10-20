@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Control from './Control/Control'
 import List from './List/List'
 
@@ -8,7 +8,6 @@ const CarList = (props) => {
 
     const changeKey = (key) => {
         setsearchKey(key)
-        console.log("changeKey", searchKey);
     }
 
     return (

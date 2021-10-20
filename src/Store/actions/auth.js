@@ -53,13 +53,11 @@ export const signIn = (info) => {
     return dispatch => {
         axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAV2X-TOL6EeQyILWaVVQGtAbDS4VIj1gs', body)
             .then(res => {
-                console.log('sucessful', res.data)
                 dispatch(AuthenticateSignIn(res.data))
                 dispatch(timeOutLogout(res.data.expiresIn))
             })
             .catch(err => {
                 dispatch(failedAuth(err))
-                console.log(err.message, 'err');
             })
     }
 }

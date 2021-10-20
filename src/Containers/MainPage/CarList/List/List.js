@@ -1,4 +1,3 @@
-import { style } from "@mui/system"
 import React from "react"
 import db from '../../../../db.json'
 import classes from './List.module.css'
@@ -9,7 +8,6 @@ const List = (props) => {
     let searchedList = []
 
     if (props.search) {
-        console.log('[LIST]: search key:', props.search);
         searchedList = listOfCars.filter(x => {
             return x.brand === props.search
 
