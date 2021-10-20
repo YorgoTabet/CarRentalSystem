@@ -17,15 +17,14 @@ const List = (props) => {
         searchedList = listOfCars.slice(0)
     }
     return (
-        <p>{searchedList.map(x => {
+        <div>{searchedList.map(x => {
             return (
                 <div className={classes.item}>
                     <img src={x.url} style={{ height: '30px', width: '30px' }} alt={x.name} />
-                    <p> {x.name} <em><sub> {x.brand}</sub></em></p>
-
+                    <p className={classes.name}> {x.name} <em><sub> {x.brand}</sub></em></p>
                 </div>
             )
-        })}</p>
+        })}</div>
     )
 }
 

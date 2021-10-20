@@ -1,10 +1,18 @@
 .item {
   display: flex;
-  flex-direction: row;
-  align-content: space-between;
+  flex-wrap: nowrap;
+  gap: 5px;
   width: 100%;
   background-color: white;
   padding-top: 5px;
   border-radius: 5px;
   margin-top: 7px;
+}
+.name {
+  margin-left: 15px;
+}
+.price {
+  display: block;
+  width: fit-content;
+  align-self: flex-end;
 }
