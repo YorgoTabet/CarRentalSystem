@@ -3,9 +3,14 @@ import { connect } from 'react-redux'
 
 import Carousel from '../../Components/Carousel/Carousel'
 import styles from './MainPage.module.css'
+import db from '../../db.json'
+import CarList from './CarList/CarList'
 
 
 const mainPage = (props) => {
+
+
+    let listOfCars = db.listOfCars;
 
 
 
@@ -16,6 +21,7 @@ const mainPage = (props) => {
             <Carousel
                 tracksToggled={props.toggleTracks}
             ></Carousel>
+            <CarList />
         </div>
 
     )
