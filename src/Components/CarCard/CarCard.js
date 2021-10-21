@@ -12,12 +12,6 @@ import ReadMoreReact from 'read-more-react'
 
 import styles from './CarCard.module.css'
 
-
-
-
-
-
-
 const MediaCard = (props) => {
 
     const [click, setClick] = useState(false)
