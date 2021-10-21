@@ -19,12 +19,12 @@ const List = (props) => {
         <div className={classes.container}>
             {searchedList.map(x => {
                 return (
-                    <div className={classes.item}>
+                    <div className={classes.item} key={x.brand + x.name} >
                         <img src={x.url} className={classes.image} alt={x.name} />
                         <p className={classes.name}> {x.name} <em><sub> {x.brand}</sub></em></p>
                     </div>
                 )
-            })}</div>
+            })}</div >
     )
 }
 
