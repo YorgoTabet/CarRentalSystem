@@ -51,7 +51,7 @@ const mapStateToProps = (state) => {
   return {
     isAuth: state.auth.token !== null,
     isLoggingIn: state.auth.isLoggingIn,
-    email: state.email
+    email: state.auth.email
   }
 }
 const mapDispatchToProps = (dispatch) => {
