@@ -49,8 +49,8 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return {
-    isAuth: state.token !== null,
-    isLoggingIn: state.isLoggingIn,
+    isAuth: state.auth.token !== null,
+    isLoggingIn: state.auth.isLoggingIn,
     email: state.email
   }
 }

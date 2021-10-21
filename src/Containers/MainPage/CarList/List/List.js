@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import classes from './List.module.css'
 
 const List = (props) => {
@@ -12,7 +12,6 @@ const List = (props) => {
 
         })
     } else {
-        console.log(listOfCars);
         searchedList = listOfCars.slice(0)
     }
     return (

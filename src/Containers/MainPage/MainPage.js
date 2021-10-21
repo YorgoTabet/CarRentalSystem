@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 import Carousel from '../../Components/Carousel/Carousel'
 import styles from './MainPage.module.css'
