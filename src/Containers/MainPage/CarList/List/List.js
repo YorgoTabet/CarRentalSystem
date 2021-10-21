@@ -1,10 +1,9 @@
-import React from "react"
-import db from '../../../../db.json'
+import React, { useEffect } from "react"
 import classes from './List.module.css'
 
 const List = (props) => {
 
-    let listOfCars = db.listOfCars
+    let listOfCars = props.carList
     let searchedList = []
 
     if (props.search) {
@@ -13,6 +12,7 @@ const List = (props) => {
 
         })
     } else {
+        console.log(listOfCars);
         searchedList = listOfCars.slice(0)
     }
     return (

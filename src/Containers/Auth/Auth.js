@@ -151,8 +151,8 @@ const Auth = (props) => {
 }
 const mapStateToProps = (state) => {
     return {
-        isAuth: state.token !== null,
-        error: state.error
+        isAuth: state.auth.token !== null,
+        error: state.auth.error
     }
 }
 const mapDispatchToProps = (dispatch) => {

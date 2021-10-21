@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
-import db from '../../../../db.json'
 import styles from './Control.module.css'
 import FilterListIcon from '@mui/icons-material/FilterList';
 
 const Control = (props) => {
 
-    let listOfCars = db.listOfCars
     const [showBrands, setshowBrands] = useState(false)
     const [isFiltered, setIsFiltered] = useState(false)
 
@@ -17,7 +15,8 @@ const Control = (props) => {
 
     let MyBrands = () => {
         let differentBrands = []
-        listOfCars.forEach(x => {
+        console.log(props.carList, "[conttrol]");
+        props.carList.forEach(x => {
             if (!differentBrands.includes(x.brand)) {
                 differentBrands.push(x.brand)
             }

@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Control from './Control/Control'
 import List from './List/List'
 
+
+
 const CarList = (props) => {
     const [searchKey, setsearchKey] = useState(null)
+
+
 
 
     const changeKey = (key) => {
@@ -13,12 +17,13 @@ const CarList = (props) => {
     return (
         // control
         <div>
-            <Control changeKey={changeKey} />
-            <List search={searchKey} />
+            <Control carList={props.carList} changeKey={changeKey} />
+            <List carList={props.carList} search={searchKey} />
         </div>
 
     )
 
 }
+
 
 export default CarList
