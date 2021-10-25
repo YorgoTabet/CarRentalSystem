@@ -46,7 +46,7 @@ const Control = (props) => {
 
     return (
         <div className={styles.control}>
-            <h1 className={styles.title}>Search</h1>
+            <h1 className={styles.title}>Filter</h1>
             <div className={styles.filter}>
                 {isFiltered ?
                     <span
