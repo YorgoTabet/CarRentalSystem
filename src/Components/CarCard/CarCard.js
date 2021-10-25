@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState } from 'react';
 import { Link } from 'react-router-dom'
 
 import Card from '@mui/material/Card';
@@ -14,17 +13,15 @@ import styles from './CarCard.module.css'
 
 const MediaCard = (props) => {
 
-    const [click, setClick] = useState(false)
 
-    const onClickHandler = () => {
-        setClick(!click)
-    }
 
     let readMoreText = () => {
         return (<a className={styles.readMore} href='#1232'>...read more</a>)
     }
     return (
-        <Card className={styles.mainCard} sx={{ maxWidth: 345 }} onClick={onClickHandler} >
+        <Card
+            className={styles.mainCard}
+            sx={{ maxWidth: 345 }}>
             <CardMedia
                 component="img"
                 height="140"
@@ -50,7 +47,7 @@ const MediaCard = (props) => {
             </CardContent>
 
             {/* View Details Btn */}
-            {click ? <Link to={"car/" + props.car.id} className={styles.ShowBtn}>Show</Link> : null}
+            <Link to={"car/" + props.car.id} className={styles.showBtn}>Show</Link>
 
             {/* Number of Rentals  */}
             {

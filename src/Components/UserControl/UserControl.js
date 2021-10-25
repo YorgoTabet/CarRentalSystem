@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styles from './UserControl.module.css'
 import PersonIcon from '@mui/icons-material/Person';
 import { useState } from "react";
+import Backdrop from "../UI/Backdrop";
 
 
 const UserControl = (props) => {
@@ -27,14 +28,21 @@ const UserControl = (props) => {
                 <button className='btn btn-light' onClick={switchMenu} ><PersonIcon /></button>
 
                 <div className={styles.Menu} style={{ display: menuToggle ? 'block' : 'none' }}>
+                    <Backdrop click={switchMenu} />
                     <p>{props.email}</p>
                     <hr />
                     <button className={'btnLogout ' + styles.logout} onClick={promptLogout}>Logout</button>
                 </div>
             </div >
             :
+
             <div>
-                <Link className="btn btn-light" to='/auth'>Login</Link>
+                <button className='btn btn-light' onClick={switchMenu} ><PersonIcon /></button>
+                <div className={styles.Menu} style={{ display: menuToggle ? 'block' : 'none' }}>
+                    <Backdrop click={switchMenu} />
+                    <Link className={styles.btn} to='/login'>Login</Link>
+                    <Link className={styles.btn} to='/signup'>Signup</Link>
+                </div>
             </div >
 
     )

@@ -3,6 +3,7 @@ import CarCard from '../CarCard/CarCard'
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import styles from './Carousel.module.css'
 
 
 
@@ -30,18 +31,20 @@ const responsive = {
 const carousel = (props) => {
     let data = props.featuredCars
     let carouselItems = data.map((data) => {
-        return <CarCard
-            key={data.id}
-            tracksToggled={props.tracksToggled}
-            car={data} />
+        return (
+            <CarCard
+                key={data.id}
+                tracksToggled={props.tracksToggled}
+                car={data} />)
     })
 
     return (
         <div>
+            <header className={styles.header}>{props.brand}<hr /></header>
             <Carousel
                 responsive={responsive}
                 infinite={true}
-                autoPlay={true}
+                autoPlay={false}
                 autoPlaySpeed={4000}
             >
                 {carouselItems}

@@ -30,7 +30,7 @@ export const getFeaturedCars = () => {
 export const getCarList = () => {
 
     return dispatch => {
-        axios.get('https://rental-project-96fe5-default-rtdb.europe-west1.firebasedatabase.app/listOfCars.json')
+        axios.get('https://rental-project-96fe5-default-rtdb.europe-west1.firebasedatabase.app/cars.json')
             .then(res => {
                 dispatch(setCarList(res.data))
             }).catch(err => {

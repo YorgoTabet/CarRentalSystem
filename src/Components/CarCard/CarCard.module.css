@@ -1,8 +1,8 @@
 .mainCard {
   margin: 15px;
   padding-bottom: 5px;
+  animation: drop 2s;
 }
-
 .readMore {
   text-decoration: none;
 }
@@ -17,7 +17,7 @@
   background-color: #bac1b8;
 }
 
-.ShowBtn {
+.showBtn {
   display: block;
   max-width: 100px;
   margin: auto;
@@ -30,8 +30,8 @@
   animation: drop 0.5s;
   text-decoration: none;
 }
-.ShowBtn:hover {
-  color: white;
+.showBtn:hover {
+  display: block;
 }
 
 @media only screen and (max-width: 750px) {

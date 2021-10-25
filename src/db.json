@@ -2,6 +2,7 @@
     "cars":[
         {
         "id":1,
+        "brand": "peugeot",
         "name": "Peugeot 307",
         "description":"The Peugeot 307 is a small family car produced by the French automaker PSA Peugeot Citroën, under their Peugeot marque.",
         "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Peugeot_307_front_20071217.jpg",
@@ -16,6 +17,7 @@
         },
         {
         "id":2,
+        "brand": "subaru",
         "name": "Subaru Impreza",
         "description":"Is Subaru still making Impreza? The Subaru Impreza retains its value better than any other vehicle in its class.",
         "url": "https://images.unsplash.com/photo-1611609054395-246e4000ad36?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
@@ -30,6 +32,7 @@
         },
         {
         "id":3,
+        "brand": "mistsubishi",
         "name": "Mitsubishi Lancer",
         "description":"The Mitsubishi Lancer is an automobile nameplate produced by the Japanese manufacturer Mitsubishi Motors since 1973.",
         "url": "https://images.unsplash.com/photo-1611023939376-e1e16d1c15bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
@@ -44,6 +47,7 @@
         },
         {
         "id":4,
+        "brand": "mazda",
         "name": "Mazda Miata",
         "description":"Over its four generations, the MX-5 Miata has remained an authentic lightweight sports car.One of our most wanted cars",
         "url": "https://images.unsplash.com/photo-1610884447640-42b8ec61a933?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1026&q=80",
@@ -52,6 +56,7 @@
         },
         {
         "id":5,
+        "brand": "ford",
         "name": "Ford F-150",
         "description":"Tougher than before. Smarter than ever!. The all-new F-150 is purpose-built from the ground up",
         "url": "https://images.unsplash.com/photo-1551830820-330a71b99659?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
@@ -67,6 +72,7 @@
         {
         "id":6,
         "name": "GOLF GTI",
+        "brand": "volkswagen",
         "description":"The Golf GTI is more than just a 4-wheeled machine – it's a force. With bold looks, a 2.0L turbocharged engine,",
         "url": "http://www.aaarentcars.com/sites/default/files/styles/image_vehicule_fullscreen/public/vehicule_images/aaa-luxury-rent-cars-golf-gti-volkswagen-v1.png?itok=tmXF4Yhe",
         "tracks": 31,
@@ -77,56 +83,21 @@
             "gasConsumption": 4,
             "comfort": 9
         }
+        },
+        {
+        "id":7,
+        "name": "Jetta",
+        "brand": "volkswagen",
+        "description":"The Golf GTI is more than just a 4-wheeled machine – it's a force. With bold looks, a 2.0L turbocharged engine,",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/2019_Volkswagen_Jetta_front_7.11.18.jpg",
+        "tracks": 10,
+        "details": {
+            "price": 7.3,
+            "downpayment": 150,
+            "seats": 4,
+            "gasConsumption": 7,
+            "comfort": 10
         }
-    ],
-    "listOfCars":[
-            {
-                "id":7,
-                "brand": "Volks Wagen",
-                "name": "GOLF GTI",
-                "url": "https://logo.clearbit.com/vw.com.br"
-            },
-            {
-                "id":8,
-                "brand": "Volks Wagen",
-                "name": "Jetta",
-                "url": "https://logo.clearbit.com/vw.com.br"
-            },
-            {
-                "id":9,
-                "brand": "Mercedes",
-                "name": "c-250",
-                "url": "https://logo.clearbit.com/mbusa.com"
-            },
-            {
-                "id":10,
-                "brand": "Mercedes",
-                "name": "e-300",
-                "url": "https://logo.clearbit.com/mbusa.com"
-            },
-            {
-                "id":11,
-                "brand": "Honda",
-                "name": "Civic",
-                "url": "https://logo.clearbit.com/honda.com"
-            },
-            {
-                "id":12,
-                "brand": "Honda",
-                "name": "Accord",
-                "url": "https://logo.clearbit.com/honda.com"
-            },
-            {
-                "id":13,
-                "brand": "Toyota",
-                "name": "Micra",
-                "url": "https://logo.clearbit.com/toyota.com"
-            },
-            {
-                "id":14,
-                "brand": "Toyota",
-                "name": "Corolla",
-                "url": "https://logo.clearbit.com/toyota.com"
-            }
+        }
     ]
 }
