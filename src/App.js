@@ -9,7 +9,6 @@ import { connect } from 'react-redux'
 import CarInfo from './Containers/CarInfo/CarInfo';
 import MainPage from './Containers/MainPage/MainPage';
 import Navbar from './Components/NavBar/Navbar';
-import Auth from './Containers/Auth/Auth'
 import * as actions from './Store/actions/index'
 import Login from './Containers/Auth/Login';
 import Signup from './Containers/Auth/Signup';
@@ -40,10 +39,11 @@ function App(props) {
       <Switch>
 
         <Route path="/" exact render={() => <MainPage toggleTracks={toggleTracks} />} />
-        <Route path="/auth" exact component={Auth} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/car/:id" exact component={CarInfo} />
+        <Route render={() => <MainPage toggleTracks={toggleTracks} />} />
+
       </Switch>
 
 

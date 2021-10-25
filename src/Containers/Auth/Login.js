@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import { connect } from 'react-redux'
 import * as actions from '../../Store/actions/index'
@@ -50,10 +50,10 @@ const Login = (props) => {
                 <Form className={styles.loginBox}>
                     <h3 className={styles.title}>Welcome Back!</h3>
                     <Field name="email" type="email" placeholder='Email' />
-                    <ErrorMessage className={styles.ErrorMessage} name="email" />
+                    <ErrorMessage component='div' className={styles.ErrorMessage} name="email" />
 
                     <Field name="password" type="password" placeholder='password' />
-                    <ErrorMessage className={styles.ErrorMessage} name="password" />
+                    <ErrorMessage component='div' className={styles.ErrorMessage} name="password" />
 
                     <button type="submit" className={styles.loginBtn}>Login</button>
                     <p>New here?</p><Link to='/signup'>Sign up</Link>
@@ -67,7 +67,7 @@ const Login = (props) => {
 
     return (
         <div>
-            {props.error ? <span className={styles.ErrorMessage}>Something went wrong... Retry!</span> : null}
+            {props.error ? <span className={styles.ErrorMessage}>Invalid Credentials</span> : null}
             {props.isAuth ? <Redirect to="/" /> : form}
         </div>
     )

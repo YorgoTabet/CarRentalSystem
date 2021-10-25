@@ -4,3 +4,6 @@
   margin-bottom: 5px;
   color: white;
 }
+.header::first-letter {
+  text-transform: capitalize;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import { connect } from 'react-redux'
 import * as actions from '../../Store/actions/index'
@@ -61,16 +61,16 @@ const Auth = (props) => {
                 <Form className={styles.loginBox}>
                     <h3 className={styles.title}>Sign Up</h3>
                     <Field name="email" type="email" placeholder='Email' />
-                    <ErrorMessage className={styles.ErrorMessage} name="email" />
+                    <ErrorMessage component='div' className={styles.ErrorMessage} name="email" />
 
                     <Field name="username" type="text" placeholder='Username' />
-                    <ErrorMessage className={styles.ErrorMessage} name="username" />
+                    <ErrorMessage component='div' className={styles.ErrorMessage} name="username" />
 
                     <Field name="password" type="password" placeholder='password' />
-                    <ErrorMessage className={styles.ErrorMessage} name="password" />
+                    <ErrorMessage component='div' className={styles.ErrorMessage} name="password" />
 
                     <Field name="confirmPass" type="password" placeholder='Confirm password' />
-                    <ErrorMessage className={styles.ErrorMessage} name="confirmPass" />
+                    <ErrorMessage component='div' className={styles.ErrorMessage} name="confirmPass" />
 
                     <button type="submit" className={styles.loginBtn}>{'Sign Up'}</button>
                     <p>Already a member?</p><Link to="/login" >Log in</Link>
@@ -80,7 +80,7 @@ const Auth = (props) => {
 
     return (
         <div>
-            {props.error ? <span className={styles.ErrorMessage}>Something went wrong... Retry!</span> : null}
+            {props.error ? <span className={styles.ErrorMessage}>Sign up failed... Try again</span> : null}
             {props.isAuth ? <Redirect to="/" /> : form}
         </div>
     );
@@ -96,8 +96,6 @@ const mapDispatchToProps = (dispatch) => {
         onLoadPage: () => dispatch(actions.isLoggingIn()),
         onLeavePage: () => dispatch(actions.notLoggingIn()),
         signUp: (info) => dispatch(actions.signUp(info)),
-        signIn: (info) => dispatch(actions.signIn(info)),
-
     }
 }
 

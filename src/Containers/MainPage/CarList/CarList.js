@@ -13,7 +13,6 @@ const CarList = (props) => {
         //getting the different brands in an array in state
         let differentBrands = []
         props.carList.forEach(x => {
-            console.log(x.brand);
             if (!differentBrands.includes(x.brand)) {
                 differentBrands.push(x.brand)
             }
