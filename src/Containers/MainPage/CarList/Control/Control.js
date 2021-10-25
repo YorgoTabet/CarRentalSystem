@@ -22,7 +22,7 @@ const Control = (props) => {
         });
         return (
             <div className={styles.container}>
-                {differentBrands.map((x) => {
+                {differentBrands.sort().map((x) => {
                     return (
                         <div
                             key={x}

@@ -17,6 +17,7 @@ const CarList = (props) => {
                 differentBrands.push(x.brand)
             }
         });
+        differentBrands.sort()
         setbrands(differentBrands);
     }, [props.carList])
 
