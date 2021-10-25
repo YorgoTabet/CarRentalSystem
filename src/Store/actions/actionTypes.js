@@ -10,5 +10,4 @@ export const AuthenticateSignIn = 'AUTHENTICATE_SIGN_IN'
 export const logout = 'LOGOUT'
 
 
-export const setFeaturedcars = "SET_FEATURED_CARS"
 export const setCarList = "SET_CAR_LIST"

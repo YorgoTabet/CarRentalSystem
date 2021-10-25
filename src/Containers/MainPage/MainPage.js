@@ -28,12 +28,11 @@ const MainPage = (props) => {
 const mapStateToProps = (state) => {
     return {
         carList: state.cars.carList,
-        featuredCars: state.cars.featuredCars
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        getCarInfo: () => dispatch(actions.getAllCarInfo())
+        getCarInfo: () => dispatch(actions.getCarList())
     }
 }
 
