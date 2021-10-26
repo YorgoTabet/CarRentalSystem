@@ -29,11 +29,13 @@ const responsive = {
 
 //Adding Carousel Items
 const carousel = (props) => {
+    console.log(props.featuredCars, "[CAROUSEL]");
     let data = props.featuredCars
     let carouselItems = data.map((data) => {
+        console.log("Carousel Item Data ", data);
         return (
             <CarCard
-                key={data.id}
+                key={data._id}
                 tracksToggled={props.tracksToggled}
                 car={data} />)
     })

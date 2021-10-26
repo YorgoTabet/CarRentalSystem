@@ -8,10 +8,10 @@ import * as actions from '../../Store/actions/index'
 
 
 const MainPage = (props) => {
-
+    const { getCarInfo } = props
     useEffect(() => {
-        props.getCarInfo()
-    }, [])
+        getCarInfo()
+    }, [getCarInfo])
 
 
     return (

@@ -1,41 +1,30 @@
 import React, { useState, useEffect } from 'react'
-import db from '../../db.json'
 import styles from './CarInfo.module.css'
-import axios from 'axios'
+import { connect } from 'react-redux'
 
 const CarInfo = (props) => {
     // 
-    const [car, setCar] = useState(db.cars.find(x => { return x.id === parseInt(props.match.params.id) }))
+    const [car, setCar] = useState(null)
     const [loading, setloading] = useState(true)
     useEffect(() => {
-        axios.get(`https://rental-project-96fe5-default-rtdb.europe-west1.firebasedatabase.app/cars.json?orderBy="id"&equalTo=${props.match.params.id}`)
-            .then(res => {
-                let elementKey = Object.keys(res.data)[0]
-                setloading(false)
-                setCar(res.data[elementKey])
-            }).catch(err => {
-                alert("there was an error")
-                props.history.push('/')
-            })
-    }, [])
+        console.log(props.cars, props.match.params.id);
+        setCar(props.cars.find(x => x._id === props.match.params.id))
+        setloading(false)
+    }, [props.cars, props.match.params.id])
 
 
     return (
         <React.Fragment >
             {loading ? <h1>Loading... </h1> :
                 <div className={styles.container + ' container'}>
-                    <img className={styles.img + ' img-fluid'} src={car.url} alt={car.id} />
-                    <div className={styles.info + "justify-conent-start"}>
-                        <h1 className={styles.name}>{car.name}</h1>
+                    <img className={styles.img + ' img-fluid'} src={car.image} alt={car.description} />
+                    <div className={styles.info + " justify-conent-start"}>
+                        <h1 className={styles.name}>{car.title}</h1>
                         <p className={styles.description}>{car.description}</p>
                         <div className={styles.details}>
                             <h5>Details</h5>
                             <ul>
-                                <li>Price: {car.details.price}/Day</li>
-                                <li>Down Payment: {car.details.downpayment}$</li>
-                                <li>Seats: {car.details.seats}</li>
-                                <li>Consumption: {car.details.gasConsumption}/10</li>
-                                <li>Comformt: {car.details.comfort}/10</li>
+                                <li>Number of Rentals: {car.numberOfRentals}</li>
                             </ul>
                         </div>
 
@@ -46,6 +35,10 @@ const CarInfo = (props) => {
 
 }
 
+const mapPropsToState = (state) => {
+    return {
+        cars: state.cars.carList
+    }
+}
 
-
-export default CarInfo
+export default connect(mapPropsToState)(CarInfo)

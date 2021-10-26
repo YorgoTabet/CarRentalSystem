@@ -9,13 +9,17 @@ import { Link } from 'react-router-dom'
 
 const Auth = (props) => {
 
+    const { onLeavePage, onLoadPage } = props
+
     useEffect(() => {
+        console.log("test");
         //dipatch userisloggingin to Hide the navigation items that shouldn't be seen
-        props.onLoadPage();
+        onLoadPage();
         return () => {
-            props.onLeavePage()
+            console.log('test');
+            onLeavePage()
         }
-    }, [])
+    }, [onLoadPage, onLeavePage])
 
     const validateSignUp = values => {
         const errors = {};

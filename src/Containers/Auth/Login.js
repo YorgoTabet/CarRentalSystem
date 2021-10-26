@@ -9,13 +9,15 @@ import { Link } from 'react-router-dom'
 
 const Login = (props) => {
 
+    const { onLeavePage, onLoadPage } = props
+
     useEffect(() => {
         //dipatch userisloggingin to Hide the navigation items that shouldn't be seen
-        props.onLoadPage();
+        onLoadPage();
         return () => {
-            props.onLeavePage()
+            onLeavePage()
         }
-    }, [])
+    }, [onLoadPage, onLeavePage])
 
     //formik validation
     const validateLogin = values => {

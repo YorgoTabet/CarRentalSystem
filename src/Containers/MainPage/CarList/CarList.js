@@ -13,8 +13,8 @@ const CarList = (props) => {
         //getting the different brands in an array in state
         let differentBrands = []
         props.carList.forEach(x => {
-            if (!differentBrands.includes(x.brand)) {
-                differentBrands.push(x.brand)
+            if (!differentBrands.includes(x.brand.name)) {
+                differentBrands.push(x.brand.name)
             }
         });
         differentBrands.sort()
@@ -45,7 +45,7 @@ const CarList = (props) => {
                         key={x}
                         brand={x}
                         tracksToggled={props.tracksToggled}
-                        featuredCars={props.carList.filter(car => car.brand === x && car.brand)}
+                        featuredCars={props.carList.filter(car => car.brand.name === x && car.brand.name)}
                     />
                 })
             }

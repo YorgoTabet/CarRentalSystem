@@ -16,8 +16,8 @@ const Control = (props) => {
     let MyBrands = () => {
         let differentBrands = []
         props.carList.forEach(x => {
-            if (!differentBrands.includes(x.brand)) {
-                differentBrands.push(x.brand)
+            if (!differentBrands.includes(x.brand.name)) {
+                differentBrands.push(x.brand.name)
             }
         });
         return (
