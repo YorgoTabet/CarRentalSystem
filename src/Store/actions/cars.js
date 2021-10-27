@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes'
-import axios from 'axios'
+import axios from '../../axios/axios-data'
 
 
 
@@ -13,7 +13,7 @@ const setCarList = (data) => {
 export const getCarList = () => {
 
     return dispatch => {
-        axios.get('https://rental-project-96fe5-default-rtdb.europe-west1.firebasedatabase.app/cars.json')
+        axios.get('cars.json')
             .then(res => {
                 console.log(res.data.result, " cars list");
                 dispatch(setCarList(res.data.result))
