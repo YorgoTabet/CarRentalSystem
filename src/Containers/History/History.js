@@ -13,7 +13,6 @@ export const History = (props) => {
 
     //last index on page is the numberOf  records*currentPageNumber
     useEffect(() => {
-        console.log("useEffect history");
         setLoading(true);
         let historyArray = Object.values(props.carHistory);
         setHistory(historyArray)
@@ -43,7 +42,7 @@ export const History = (props) => {
                 currentHistory.map((x) => {
                     return <div
                         className={styles.record}
-                        key={x.username + x.days} >
+                        key={Math.random + x.username + x.days} >
                         <span>{x.username}</span>
                         <span>{x.days}</span>
                     </div >
