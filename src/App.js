@@ -43,6 +43,7 @@ function App(props) {
         <Route path="/signup" exact component={Signup} />
         <Route path="/car/:id" exact component={CarInfo} />
         <Route render={() => <MainPage toggleTracks={toggleTracks} />} />
+        <Route render={() => <MainPage toggleTracks={toggleTracks} />} />
 
       </Switch>
 

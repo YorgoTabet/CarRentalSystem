@@ -15,7 +15,8 @@ export const History = (props) => {
     useEffect(() => {
         console.log("useEffect history");
         setLoading(true);
-        setHistory(props.carHistory)
+        let historyArray = Object.values(props.carHistory);
+        setHistory(historyArray)
         setLoading(false)
     }, [props.carHistory])
 
