@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styles from './CarInfo.module.css'
 import { connect } from 'react-redux'
 import axios from '../../axios/axios-data'
+import * as actions from '../../Store/actions/index'
 
 import History from '../History/History'
 
@@ -9,21 +10,26 @@ const CarInfo = (props) => {
 
     const [car, setCar] = useState({})
     const [loading, setloading] = useState(true)
+    const { hideUi, showUi } = props
+
     useEffect(() => {
-        // setCar(props.cars.find(x => x._id === props.match.params.id))
-        //send request to firebase to get car by id
-        console.log(props.match.params.id);
+        hideUi()
+        return () => {
+            showUi()
+        }
+    }, [hideUi, showUi])
+
+    useEffect(() => {
         axios.get(`cars/result.json?orderBy="_id"&equalTo="${props.match.params.id}"`)
             .then(req => {
-                console.log(req.data)
                 let currentCar = req.data[Object.keys(req.data)[0]]
-                console.log(currentCar);
                 setCar(currentCar)
                 setloading(false)
 
             })
             .catch(err => {
                 props.history.push('/')
+                setloading(false)
             })
 
         setloading(false)
@@ -45,7 +51,6 @@ const CarInfo = (props) => {
                                 <li>Number of Rentals: {car.numberOfRentals}</li>
                             </ul>
                         </div>
-                        {/* history component just pass the car ID */}
                         <History carHistory={{ ...car.history }} />
                     </div>
                 </div>}
@@ -59,5 +64,11 @@ const mapPropsToState = (state) => {
         cars: state.cars.carList
     }
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        hideUi: () => dispatch(actions.hideUi()),
+        showUi: () => dispatch(actions.showUi())
+    }
+}
 
-export default connect(mapPropsToState)(CarInfo)
+export default connect(mapPropsToState, mapDispatchToProps)(CarInfo)

@@ -1,5 +1,5 @@
 import 'react-multi-carousel/lib/styles.css';
-import { Route, Switch } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router';
 
 import styles from './App.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -37,13 +37,11 @@ function App(props) {
         logout={props.onLogout}
         email={props.email} />
       <Switch>
-
         <Route path="/" exact render={() => <MainPage toggleTracks={toggleTracks} />} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/car/:id" exact component={CarInfo} />
-        <Route render={() => <MainPage toggleTracks={toggleTracks} />} />
-        <Route render={() => <MainPage toggleTracks={toggleTracks} />} />
+        <Redirect to='/' />
 
       </Switch>
 

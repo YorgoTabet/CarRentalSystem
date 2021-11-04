@@ -13,6 +13,7 @@ export const History = (props) => {
 
     //last index on page is the numberOf  records*currentPageNumber
     useEffect(() => {
+        console.log("useEffect history");
         setLoading(true);
         let historyArray = Object.values(props.carHistory);
         setHistory(historyArray)
@@ -20,10 +21,12 @@ export const History = (props) => {
     }, [props.carHistory])
 
     useEffect(() => {
+
         setNumberOfPages(Math.ceil(history.length / recordsPerPage))
         let lastIndex = currentPage * recordsPerPage
         let firstIndex = lastIndex - recordsPerPage
-        if (lastIndex > history.length) { lastIndex = history.length - 1 }
+        if (lastIndex > history.length) { lastIndex = history.length }
+        console.log("First Index: ", firstIndex, "Last Index: ", lastIndex);
         setCurrentHistory(history.slice(firstIndex, lastIndex))
 
     }, [history, currentPage, numberOfPages])

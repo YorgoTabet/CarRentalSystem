@@ -1,0 +1,176 @@
+{
+  "cars" : {
+    "result" : [ {
+      "__v" : 0,
+      "_id" : "as1232",
+      "brand" : {
+        "__v" : 0,
+        "_id" : "3123",
+        "createdAt" : "",
+        "description" : "Full",
+        "name" : "Mercedes",
+        "showNbCars" : false,
+        "updatedAt" : ""
+      },
+      "category" : "Sedan",
+      "description" : "Full specs",
+      "history" : [ {
+        "days" : "12",
+        "image" : "Test.jpeg",
+        "username" : "Jhon Doe "
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Jane Doe "
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Hugh Man Pierson "
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Sum Won Els "
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Fir Stname"
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Richard Miles"
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Joe Public"
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Jhon Smith"
+      } ],
+      "image" : "https://redbook.pxcrush.net/redbook/car/spec/merc1284.jpg?height=292&padcolor=ffffff&aspect=FitWithin&width=440",
+      "numberOfRentals" : 12,
+      "title" : "Mercedes c-320"
+    }, {
+      "__v" : 0,
+      "_id" : "asd32111",
+      "brand" : {
+        "__v" : 0,
+        "_id" : "224412",
+        "createdAt" : "",
+        "description" : "Full",
+        "name" : "Mercedes",
+        "showNbCars" : false,
+        "updatedAt" : ""
+      },
+      "category" : "Coupe",
+      "description" : "C-250t Coupe",
+      "history" : [ {
+        "days" : "600",
+        "image" : "Test.jpeg",
+        "username" : "Gio Andraos "
+      } ],
+      "image" : "https://i.imgur.com/HUvKG1A.jpg",
+      "numberOfRentals" : 1,
+      "title" : "Mercedes c-320"
+    }, {
+      "__v" : 0,
+      "_id" : "1232",
+      "brand" : {
+        "__v" : 0,
+        "_id" : "3123",
+        "createdAt" : "",
+        "description" : "Full",
+        "name" : "Mercedes",
+        "showNbCars" : false,
+        "updatedAt" : ""
+      },
+      "category" : "Sports",
+      "description" : "2 Door Coupe 1.2T",
+      "history" : [ {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Jhon Doe "
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Jane Doe "
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Hugh Man Pierson "
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Sum Won Els "
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Fir Stname"
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Richard Miles"
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Joe Public"
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Jhon Smith"
+      } ],
+      "image" : "https://www.autocar.co.uk/sites/autocar.co.uk/files/1-mercedes-amg-c-63-s-coupe-2019-rt-hero-front.jpg",
+      "numberOfRentals" : 3,
+      "title" : "Mercedes coupe AMG"
+    }, {
+      "__v" : 0,
+      "_id" : "asd1asf232",
+      "brand" : {
+        "__v" : 0,
+        "_id" : "43352",
+        "createdAt" : "",
+        "description" : "Over its four generations, the MX-5 Miata has remained an authentic lightweight sports car.One of our most wanted cars",
+        "name" : "Mazda",
+        "showNbCars" : false,
+        "updatedAt" : ""
+      },
+      "category" : "Sports",
+      "description" : "2 door sports car, very comfortable for cruises",
+      "history" : [ {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Jhon Doe "
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Jane Doe "
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Hugh Man Pierson "
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Sum Won Els "
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Fir Stname"
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Richard Miles"
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Joe Public"
+      }, {
+        "days" : "3",
+        "image" : "Test.jpeg",
+        "username" : "Jhon Smith"
+      } ],
+      "image" : "https://carsguide-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto,t_default/v1/editorial/vhs/Mazda-MX-5.png",
+      "numberOfRentals" : 5,
+      "title" : "Mazda MX-5"
+  }]}}
+

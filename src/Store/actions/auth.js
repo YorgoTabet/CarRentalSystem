@@ -78,3 +78,13 @@ export const signUp = (info) => {
     }
 
 }
+export const hideUi = () => {
+    return dispatch => {
+        dispatch(isLoggingIn())
+    }
+}
+export const showUi = () => {
+    return dispatch => {
+        dispatch(notLoggingIn())
+    }
+}
