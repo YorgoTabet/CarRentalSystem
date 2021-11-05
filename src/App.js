@@ -41,8 +41,8 @@ function App(props) {
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/car/:id" exact component={CarInfo} />
+        <Redirect from="/car" to='/' />
         <Redirect to='/' />
-
       </Switch>
 
 
