@@ -2,13 +2,23 @@ import React, { useEffect } from 'react'
 
 import styles from './MainPage.module.css'
 import CarList from './CarList/CarList'
+import { useCallback } from 'react'
 
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import * as actions from '../../Store/actions/index'
 
 
 const MainPage = (props) => {
-    const { getCarInfo } = props
+    const dispatch = useDispatch()
+
+    const carList = useSelector(state => state.cars.carList)
+    const getCarInfo = useCallback(
+        () => {
+            dispatch(actions.getCarList())
+        },
+        [dispatch],
+    )
+
     useEffect(() => {
         getCarInfo()
     }, [getCarInfo])
@@ -18,24 +28,10 @@ const MainPage = (props) => {
         <div className={styles.container + ' container'}>
             <CarList
                 tracksToggled={props.toggleTracks}
-                carList={props.carList} />
+                carList={carList} />
         </div>
 
     )
 }
 
-
-const mapStateToProps = (state) => {
-    return {
-        carList: state.cars.carList,
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getCarInfo: () => dispatch(actions.getCarList())
-    }
-}
-
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage)
+export default MainPage

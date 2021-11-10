@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { useCallback } from 'react'
 import * as actions from '../../Store/actions/index'
 
 import styles from './Auth.module.css'
@@ -9,7 +10,19 @@ import { Link } from 'react-router-dom'
 
 const Auth = (props) => {
 
-    const { onLeavePage, onLoadPage } = props
+    const isAuth = useSelector(state => state.auth.token !== null)
+    const error = useSelector(state => state.auth.error)
+    const dispatch = useDispatch()
+
+    const onLoadPage = useCallback(() => {
+        dispatch(actions.isLoggingIn())
+    }, [dispatch])
+    const onLeavePage = useCallback(() => {
+        dispatch(actions.notLoggingIn())
+    }, [dispatch])
+    const signUp = useCallback((info) => {
+        dispatch(actions.signUp(info))
+    }, [dispatch])
 
     useEffect(() => {
         console.log("test");
@@ -59,7 +72,7 @@ const Auth = (props) => {
                     email: values.email,
                     password: values.password,
                 }
-                props.signUp(info)
+                signUp(info)
             }}>
             <div className={styles.page}>
                 <Form className={styles.loginBox}>
@@ -84,23 +97,11 @@ const Auth = (props) => {
 
     return (
         <div>
-            {props.error ? <span className={styles.ErrorMessage}>Sign up failed... Try again</span> : null}
-            {props.isAuth ? <Redirect to="/" /> : form}
+            {error ? <span className={styles.ErrorMessage}>Sign up failed... Try again</span> : null}
+            {isAuth ? <Redirect to="/" /> : form}
         </div>
     );
 }
-const mapStateToProps = (state) => {
-    return {
-        isAuth: state.auth.token !== null,
-        error: state.auth.error
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onLoadPage: () => dispatch(actions.isLoggingIn()),
-        onLeavePage: () => dispatch(actions.notLoggingIn()),
-        signUp: (info) => dispatch(actions.signUp(info)),
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth)
+
+export default Auth

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { useCallback } from 'react'
 import * as actions from '../../Store/actions/index'
 
 import styles from './Auth.module.css'
@@ -9,7 +10,19 @@ import { Link } from 'react-router-dom'
 
 const Login = (props) => {
 
-    const { onLeavePage, onLoadPage } = props
+    const isAuth = useSelector(state => state.auth.token !== null)
+    const error = useSelector(state => state.auth.error)
+    const dispatch = useDispatch()
+
+    const onLoadPage = useCallback(() => {
+        dispatch(actions.isLoggingIn())
+    }, [dispatch])
+    const onLeavePage = useCallback(() => {
+        dispatch(actions.notLoggingIn())
+    }, [dispatch])
+    const signIn = useCallback((info) => {
+        dispatch(actions.signIn(info))
+    }, [dispatch])
 
     useEffect(() => {
         //dipatch userisloggingin to Hide the navigation items that shouldn't be seen
@@ -45,7 +58,7 @@ const Login = (props) => {
                 email: values.email,
                 password: values.password,
             }
-            props.signIn(info)
+            signIn(info)
         }}>
         {
             <div className={styles.page}>
@@ -64,31 +77,19 @@ const Login = (props) => {
             </div>
 
         }
-    </Formik >)
+    </Formik>)
 
 
     return (
         <div>
-            {props.error ? <span className={styles.ErrorMessage}>Invalid Credentials</span> : null}
-            {props.isAuth ? <Redirect to="/" /> : form}
+            {error ? <span className={styles.ErrorMessage}>Invalid Credentials</span> : null}
+            {isAuth ? <Redirect to="/" /> : form}
         </div>
     )
 
 }
-const mapStateToProps = (state) => {
-    return {
-        isAuth: state.auth.token !== null,
-        error: state.auth.error
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onLoadPage: () => dispatch(actions.isLoggingIn()),
-        onLeavePage: () => dispatch(actions.notLoggingIn()),
-        signIn: (info) => dispatch(actions.signIn(info)),
-
-    }
-}
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+
+
+export default Login

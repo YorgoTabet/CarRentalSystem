@@ -51,7 +51,8 @@ export const signIn = (info) => {
         returnSecureToken: true
     }
     return dispatch => {
-        axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAV2X-TOL6EeQyILWaVVQGtAbDS4VIj1gs', body)
+        console.log(process.env.REACT_APP_API_KEY, "ENV")
+        axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAV2X-TOL6EeQyILWaVVQGtAbDS4VIj1gs`, body)
             .then(res => {
                 dispatch(AuthenticateSignIn(res.data))
                 dispatch(timeOutLogout(res.data.expiresIn))

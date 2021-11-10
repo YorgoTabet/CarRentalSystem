@@ -4,7 +4,7 @@ import { Redirect, Route, Switch } from 'react-router';
 import styles from './App.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import CarInfo from './Containers/CarInfo/CarInfo';
 import MainPage from './Containers/MainPage/MainPage';
@@ -18,6 +18,14 @@ function App(props) {
 
   const [toggleTracks, setToggleTracks] = useState(true)
 
+  const isAuth = useSelector(state => state.auth.token !== null)
+  const isLoggingIn = useSelector(state => state.auth.isLoggingIn)
+  const email = useSelector(state => state.auth.email)
+
+  const dispatch = useDispatch()
+  const onLogout = () => {
+    dispatch(actions.logout())
+  }
 
   //Helper function to toggle state
   const switchTracks = () => {
@@ -26,16 +34,17 @@ function App(props) {
       return !prevState
     })
   }
-
+  console.log(process.env.REACT_APP_API_KEY);
   return (
     <div className={styles.App} >
+
       <Navbar
         tracksToggled={toggleTracks}
         setToggleTracks={switchTracks}
-        isAuth={props.isAuth}
-        isLoggingIn={props.isLoggingIn}
-        logout={props.onLogout}
-        email={props.email} />
+        isAuth={isAuth}
+        isLoggingIn={isLoggingIn}
+        logout={onLogout}
+        email={email} />
       <Switch>
         <Route path="/" exact render={() => <MainPage toggleTracks={toggleTracks} />} />
         <Route path="/login" exact component={Login} />
@@ -46,21 +55,9 @@ function App(props) {
       </Switch>
 
 
-    </div >
+    </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    isAuth: state.auth.token !== null,
-    isLoggingIn: state.auth.isLoggingIn,
-    email: state.auth.email
-  }
-}
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onLogout: () => dispatch(actions.logout())
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

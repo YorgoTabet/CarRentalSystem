@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './CarInfo.module.css'
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useCallback } from 'react'
 import axios from '../../axios/axios-data'
 import * as actions from '../../Store/actions/index'
 
@@ -10,7 +11,23 @@ const CarInfo = (props) => {
 
     const [car, setCar] = useState({})
     const [loading, setloading] = useState(true)
-    const { hideUi, showUi } = props
+    const dispatch = useDispatch()
+
+    const hideUi = useCallback(
+        () => {
+            dispatch(actions.hideUi())
+        },
+        [dispatch],
+    )
+
+    const showUi = useCallback(
+        () => {
+            dispatch(actions.showUi())
+        },
+        [dispatch],
+    )
+
+
 
     useEffect(() => {
         hideUi()
@@ -59,16 +76,7 @@ const CarInfo = (props) => {
 
 }
 
-const mapPropsToState = (state) => {
-    return {
-        cars: state.cars.carList
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        hideUi: () => dispatch(actions.hideUi()),
-        showUi: () => dispatch(actions.showUi())
-    }
-}
 
-export default connect(mapPropsToState, mapDispatchToProps)(CarInfo)
+
+
+export default CarInfo
