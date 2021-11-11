@@ -39,7 +39,7 @@ function App(props) {
     <div className={styles.App} >
 
       <Navbar
-        tracksToggled={() => dispatch(actions.switchTracks())}
+        tracksToggled={toggleTracks}
         setToggleTracks={() => dispatch(actions.switchTracks())}
         isAuth={isAuth}
         isLoggingIn={isLoggingIn}
