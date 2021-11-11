@@ -10,6 +10,7 @@ import { Provider } from 'react-redux'
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import authReducer from './Store/reducers/auth'
 import carsReducer from './Store/reducers/cars'
+import uiReducer from './Store/reducers/UI'
 import thunk from 'redux-thunk'
 
 import reportWebVitals from './reportWebVitals';
@@ -18,7 +19,8 @@ const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX
 const reducer = combineReducers(
   {
     auth: authReducer,
-    cars: carsReducer
+    cars: carsReducer,
+    UI: uiReducer
   }
 )
 

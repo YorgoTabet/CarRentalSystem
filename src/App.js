@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router';
 
 import styles from './App.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
 import CarInfo from './Containers/CarInfo/CarInfo';
@@ -17,7 +17,7 @@ import Signup from './Containers/Auth/Signup';
 function App(props) {
 
 
-  const [toggleTracks, setToggleTracks] = useState(true)
+  const toggleTracks = useSelector(state => state.UI.toggleTracks)
 
   const isAuth = useSelector(state => state.auth.token !== null)
   const isLoggingIn = useSelector(state => state.auth.isLoggingIn)
@@ -34,18 +34,13 @@ function App(props) {
     dispatch(actions.logout())
   }
 
-  //Helper function to toggle state
-  const switchTracks = () => {
-    setToggleTracks(prevState => {
-      return !prevState
-    })
-  }
+
   return (
     <div className={styles.App} >
 
       <Navbar
-        tracksToggled={toggleTracks}
-        setToggleTracks={switchTracks}
+        tracksToggled={() => dispatch(actions.switchTracks())}
+        setToggleTracks={() => dispatch(actions.switchTracks())}
         isAuth={isAuth}
         isLoggingIn={isLoggingIn}
         logout={onLogout}

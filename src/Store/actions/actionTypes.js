@@ -11,3 +11,5 @@ export const logout = 'LOGOUT'
 
 
 export const setCarList = "SET_CAR_LIST"
+
+export const toggleTracks = 'TOGGLE_TRACKS'
