@@ -1,2 +1,2 @@
-export { isLoggingIn, notLoggingIn, signIn, signUp, logout, hideUi, showUi } from './auth'
+export { isLoggingIn, notLoggingIn, signIn, signUp, logout, hideUi, showUi, autologin } from './auth'
 export { getCarList } from './cars'

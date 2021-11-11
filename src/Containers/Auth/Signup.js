@@ -25,11 +25,9 @@ const Auth = (props) => {
     }, [dispatch])
 
     useEffect(() => {
-        console.log("test");
         //dipatch userisloggingin to Hide the navigation items that shouldn't be seen
         onLoadPage();
         return () => {
-            console.log('test');
             onLeavePage()
         }
     }, [onLoadPage, onLeavePage])
@@ -45,7 +43,6 @@ const Auth = (props) => {
         if (!values.password) {
             errors.password = 'Required'
         } else if (!passRegex.test(values.password)) {
-            console.log(passRegex.test(values.password));
             errors.password = 'Password must contain 8-10 character, 1 uppercase, 1 number and a special character'
         }
         if (!values.username) {

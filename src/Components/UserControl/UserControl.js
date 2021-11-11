@@ -4,6 +4,7 @@ import styles from './UserControl.module.css'
 import PersonIcon from '@mui/icons-material/Person';
 import { useState } from "react";
 import Backdrop from "../UI/Backdrop";
+import classNames from 'classnames'
 
 
 const UserControl = (props) => {
@@ -31,7 +32,7 @@ const UserControl = (props) => {
                     <Backdrop click={switchMenu} />
                     <p>{props.email}</p>
                     <hr />
-                    <button className={'btnLogout ' + styles.logout} onClick={promptLogout}>Logout</button>
+                    <button className={classNames('btnLogout ', styles.logout)} onClick={promptLogout}>Logout</button>
                 </div>
             </div >
             :

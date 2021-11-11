@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router';
 
 import styles from './App.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
 import CarInfo from './Containers/CarInfo/CarInfo';
@@ -16,25 +16,31 @@ import Signup from './Containers/Auth/Signup';
 
 function App(props) {
 
+  console.log(process.env.REACT_APP_API_KEY)
+
   const [toggleTracks, setToggleTracks] = useState(true)
 
   const isAuth = useSelector(state => state.auth.token !== null)
   const isLoggingIn = useSelector(state => state.auth.isLoggingIn)
   const email = useSelector(state => state.auth.email)
 
+
+
   const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(actions.autologin())
+  }, [dispatch])
+
   const onLogout = () => {
     dispatch(actions.logout())
   }
 
   //Helper function to toggle state
   const switchTracks = () => {
-    console.log('Switching Tracks')
     setToggleTracks(prevState => {
       return !prevState
     })
   }
-  console.log(process.env.REACT_APP_API_KEY);
   return (
     <div className={styles.App} >
 

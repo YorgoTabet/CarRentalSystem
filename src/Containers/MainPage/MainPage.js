@@ -7,6 +7,8 @@ import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as actions from '../../Store/actions/index'
 
+import classNames from 'classnames'
+
 
 const MainPage = (props) => {
     const dispatch = useDispatch()
@@ -25,7 +27,7 @@ const MainPage = (props) => {
 
 
     return (
-        <div className={styles.container + ' container'}>
+        <div className={classNames(styles.container, ' container')}>
             <CarList
                 tracksToggled={props.toggleTracks}
                 carList={carList} />

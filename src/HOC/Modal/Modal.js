@@ -5,7 +5,7 @@ import logo from '../../assets/logo.svg'
 const Modal = (props) => {
     return (
         <div className={classes.modal}>
-            <img src={logo} className={classes.logo} />
+            <img src={logo} className={classes.logo} alt="Logo" />
             {props.children}
         </div>
     )

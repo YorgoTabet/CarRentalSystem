@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useCallback } from 'react'
 import axios from '../../axios/axios-data'
 import * as actions from '../../Store/actions/index'
+import classNames from 'classnames'
 
 import History from '../History/History'
 
@@ -57,9 +58,9 @@ const CarInfo = (props) => {
 
         <div className={styles.main} >
             {loading ? <h1>Loading... </h1> :
-                <div className={styles.container + ' container'}>
-                    <img className={styles.img + ' img-fluid'} src={car.image} alt={car.description} />
-                    <div className={styles.info + " justify-content-start"}>
+                <div className={classNames(styles.container, 'container')}>
+                    <img className={classNames(styles.img, ' img-fluid')} src={car.image} alt={car.description} />
+                    <div className={classNames(styles.info, " justify-content-start")}>
                         <h1 className={styles.name}>{car.title}</h1>
                         <p className={styles.description}>{car.description}</p>
                         <div className={styles.details}>

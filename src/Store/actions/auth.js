@@ -24,13 +24,16 @@ export const AuthenticateSignIn = (info) => {
 
 export const logout = () => {
 
+    localStorage.setItem('token', null)
+    localStorage.setItem('validUntil', null)
+    localStorage.setItem('email', null)
+
     return {
         type: actionTypes.logout
     }
 }
 
 export const timeOutLogout = (time) => {
-
     return dispatch => {
         setTimeout(() => {
             dispatch(logout())
@@ -45,15 +48,20 @@ export const failedAuth = () => {
 }
 
 export const signIn = (info) => {
-    const body = {
-        email: info.email,
-        password: info.password,
-        returnSecureToken: true
-    }
     return dispatch => {
-        console.log(process.env.REACT_APP_API_KEY, "ENV")
+
+        const body = {
+            email: info.email,
+            password: info.password,
+            returnSecureToken: true
+        }
         axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAV2X-TOL6EeQyILWaVVQGtAbDS4VIj1gs`, body)
             .then(res => {
+                // turn ms in date from now
+                const expirationDate = new Date(new Date().getTime() + res.data.expiresIn * 1000)
+                localStorage.setItem('token', res.data.idToken)
+                localStorage.setItem('validUntil', expirationDate)
+                localStorage.setItem('email', res.data.email)
                 dispatch(AuthenticateSignIn(res.data))
                 dispatch(timeOutLogout(res.data.expiresIn))
             })
@@ -78,6 +86,25 @@ export const signUp = (info) => {
             .catch(err => dispatch(failedAuth()))
     }
 
+}
+export const autologin = () => {
+    return dispatch => {
+        if (localStorage.getItem('token') !== null) {
+            let token = localStorage.getItem('token');
+            let expirationDate = new Date(localStorage.getItem('validUntil')).getTime()
+            let email = localStorage.getItem('email');
+            if (expirationDate > 0) {
+                const body = {
+                    idToken: token,
+                    email
+                }
+                dispatch(AuthenticateSignIn(body))
+                dispatch(timeOutLogout((expirationDate - new Date().getTime()) / 1000))
+            } else {
+                dispatch(logout())
+            }
+        }
+    }
 }
 export const hideUi = () => {
     return dispatch => {
