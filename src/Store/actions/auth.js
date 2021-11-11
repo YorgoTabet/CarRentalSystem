@@ -55,7 +55,7 @@ export const signIn = (info) => {
             password: info.password,
             returnSecureToken: true
         }
-        axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAV2X-TOL6EeQyILWaVVQGtAbDS4VIj1gs`, body)
+        axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_API_KEY}`, body)
             .then(res => {
                 // turn ms in date from now
                 const expirationDate = new Date(new Date().getTime() + res.data.expiresIn * 1000)
@@ -77,7 +77,7 @@ export const signUp = (info) => {
         returnSecureToken: true
     }
     return dispatch => {
-        axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAV2X-TOL6EeQyILWaVVQGtAbDS4VIj1gs', body)
+        axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_API_KEY}`, body)
             .then(res => {
                 dispatch(timeOutLogout(res.data.expiresIn))
                 dispatch(AuthenticateSignIn(res.data))

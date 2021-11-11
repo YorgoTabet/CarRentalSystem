@@ -16,7 +16,6 @@ import Signup from './Containers/Auth/Signup';
 
 function App(props) {
 
-  console.log(process.env.REACT_APP_API_KEY)
 
   const [toggleTracks, setToggleTracks] = useState(true)
 
